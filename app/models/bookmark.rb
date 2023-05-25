@@ -6,4 +6,5 @@ class Bookmark < ApplicationRecord
 
   # The comment of a bookmark cannot be shorter than 6 characters.
   validates :comment, length: { minimum: 6 }
+  validates :movie_id, uniqueness: { scope: :list_id, message: "is already in the list" }
 end
